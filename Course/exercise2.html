@@ -1,0 +1,226 @@
+
+<!-- saved from url=(0096)https://gauchospace.ucsb.edu/courses/pluginfile.php/640313/mod_resource/content/2/exercise2.html -->
+<html><!--
+Art 22 Winter 2016 Programming Exercise #2
+HTML/CSS/JavaScript Image Kaleidoscope
+
+Reivew the code and Steps 1-10 in the comments below to modify this page and
+create a custom image kaleidoscope. You will use functions, conditionals, variables,
+operators and arrays to fade the opacity of two images over a background and
+simultaneoulsy move the images to create a crude kaleidoscope effect.
+ --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- using internal styling here, but feel free to use external if you prefer -->
+<style>
+/* this styling class will be used for all images, you can change the name if you'd like */
+img.myClass
+{
+  position: absolute;
+  top: 5%;
+  /* add additional styling as needed here... */
+}
+
+button
+{
+  height: 5%;
+  width: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background-color: black;
+  color: white;
+  border: 0px;
+}
+
+
+</style>
+
+<body cz-shortcut-listen="true">
+<div class="dropdown">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="art22ex1.html">Exercise 1</a></li>
+        <<li><a href="exercise2.html">Exercise 2</a></li>
+        <<li><a href="exercise3.html">Exercise 3</a></li>
+    </ul>
+</div>
+<!-- Step 1 -->
+<!-- Add an attribute so that when clicked this button calls a function named pickRandom().
+You will create this function later.-->
+<button type="button" onclick="pickRandom()">Click Me!</button>
+<br>
+
+<!-- This elements image placeholders will be dynamically changed later in our javascript code-->
+<img id="imageBackground1" class="myClass" src="resources/img1.gif"/>
+<img id="imageBackground2" class="myClass" src="resources/img2.png"/>
+
+<!-- Begin JavaScript -->
+<script>
+
+//Step 3 declaring our elements
+
+//references to our DOM image elements
+var image1Background = document.getElementById("imageBackground1");
+var image2Background = document.getElementById("imageBackground2");
+
+var image1 = "resources/img1.gif";
+var image2 = "resources/img2.png";
+var image3 = "resources/img3.gif";
+var image4 = "resources/img4.png";
+var image5 = "resources/img5.png";
+var image6 = "resources/img6.png";
+
+
+//adding our image variables to an array
+var imagePaths = [image1,image2,image3,image4,image5,image6];
+
+
+//Step 3 Creating our pickRandom() function
+
+/**
+ * Changes our HTML image1 and image 2 elements to an image in our images array
+ * according to a number randomly generated between 0 and the length of our images array.
+ */
+function pickRandom(){
+    //The Math.floor() function returns the largest integer less than or equal to a given number.
+    var r1 = Math.floor((Math.random() * this.imagePaths.length));
+    var r2 = Math.floor((Math.random() * this.imagePaths.length));
+
+    //variables will be logged when function is called
+    console.log(r1);
+    console.log(r2);
+
+    //Changes the image that image1 and image 2 in our DOM is referencing according
+    //to random numbers generated for variables r1 and r2.
+    image1Background.src = imagePaths[r1];
+    image2Background.src = imagePaths[r2];
+}
+
+//Step 5 creating our global variables
+var currentOpacity = 0;
+var fadeSpeed = 0.01;
+
+//Step 6
+/*
+Declare a function called fade that takes 0 arguments.
+The fade function should do the following:
+- set the opacity of image2 to currentOpacity
+- increment currentOpacity by fadeSpeed (add fadeSpeed to currentOpacity)
+- use a conditional:
+  if currentOpacity is greater than or equal to 1 OR currentOpacity is less than or equal to 0,
+  then invert fadeSpeed (multiply fadeSpeed by negative 1).
+- log the value of currentOpacity to the console so you can check your results.
+  the value of currentOpacity should oscillate between 0 and 1.
+- Your image2 should fade in and out
+- once that's working set image1's opacity to equal 1 - currentOpacity
+- You should have a smooth cross fade between image1 and image2
+Note: a interval timer calling the fade function every 30 ms is already declared below...
+*/
+
+//Step 6 Declaring our fade function
+
+/**
+ *Sets opacity of our DOM image1 background to currentOpacity
+ *increment currentOpacity by fadeSpeed (add fadeSpeed to currentOpacity)
+ */
+function fade(){
+
+    currentOpacity += fadeSpeed;
+    if(currentOpacity >= 1 || currentOpacity <= 0){
+        fadeSpeed = fadeSpeed * (-1);
+    }
+
+    //loggin the value of current opacity. It should oscillate between 0 and 1;
+    console.log(currentOpacity);
+
+    image1Background.style.opacity = currentOpacity;
+    image2Background.style.opacity = 1 - currentOpacity;
+
+}
+
+//Step 7
+/*
+Create two global variables to hold the left or top position of image1 and image2.
+For example, var image1Left, etc.
+Create two more global variables called image1Speed and image2Speed.
+Set the default value of image1Speed to -5 and the default value of image2Speed to 5.
+*/
+
+//Step 7
+
+//Step 8
+/*
+Declare a function called move that takes 0 arguments.
+In the function:
+- Set the absolute left or top position of image2 to the global variable you created in Step 7.
+- Increment your global position variable by image2Speed (add image2Speed to the global position variable).
+
+Refresh the page and you should see image 2 move to the right or down and eventually off the screen.
+
+Add a conditional to the move function so the image will reverse direction of movement when
+it is halfway off the screen and then resume right or downwards movement when it is back to the left or top.
+Hints:
+- think about what we did in the fade function to reverse the opacity fade.
+- your conditional will have to check your global position variable for 2 conditions
+- window.innerWidth/2 and window.innerHeight/2 will be useful
+- review previous animation.html and multianimation.html examples for clues
+
+Add similar motion and a conditional for image1, which should move in the opposite direction.
+Note: We set image1Speed to the negative of image2Speed, so it will move the opposite direction by default.
+Hint: You might need to compare the left or top global variable to a negative number.
+*/
+
+image1Background.style.height = window.innerHeight;
+image1Background.style.width = window.innerWidth/2;
+
+image2Background.style.height = window.innerHeight;
+image2Background.style.width = window.innerWidth/2;
+
+var currentX = 50;
+var moveSpeed = 0.10;
+
+function move(){
+
+    //working on our images
+    image2Background.style.left = currentX +"%";
+
+    currentX += moveSpeed;
+
+    if(currentX >= 100 || currentX <= 50){
+        moveSpeed = moveSpeed * (-1);
+    }
+
+    //loggin the value of current opacity. It should oscillate between 0 and 1;
+    console.log(currentX);
+
+    //working on
+    image1Background.style.right = 100 - currentX + "%";
+    image2Background.style.left = 100 - currentX + "%";
+
+}
+
+
+//Step 10
+//Upload your html and any necessary images to your webspace and add a link to your
+//kaleidoscope to your homepage.
+
+//Optional BONUSES
+//Add rotation to the images to improve the effect.
+//Add a button or HTML slider to change fadeSpeed or movement speeds
+
+//our only setup is to start a couple timers for fade and move functions
+function setup()
+{
+  setInterval(fade, 30);
+  setInterval(move, 30);
+}
+//standard for most pages - causes setup() to be called when the page loads
+window.onload = setup();
+
+</script>
+<!-- End JavaScript -->
+
+
+
+</body></html>

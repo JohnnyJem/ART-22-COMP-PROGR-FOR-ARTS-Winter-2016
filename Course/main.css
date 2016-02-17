@@ -1,0 +1,124 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+/* these properties will apply to the body of the page */
+
+html{
+    min-height:100%;/* make it as tall as the viewport */
+    position:relative;
+}
+body{
+    height:100%;
+}
+#bodyDark{
+    height:100%;
+    background-image: url("resources/drawables/dark-background.jpg"); /*custom background image!*/
+}
+
+#bodyLight{
+    height:100%;
+    background-color: #FDFDFE ; /* custom background color!*/
+}
+
+div.bigborder{
+    border: 1px solid black;
+    margin: 0px;
+    padding: 0px;
+}
+/*Example derived from http://www.w3schools.com/css/css_dropdowns.asp*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    width: 720px;
+    padding: 15px;
+    text-align: center;
+}
+
+/*An example of an unused css property!*/
+tr:nth-child(even) {
+    background-color: #f2f2f2}
+
+.autoResizeImage{
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+}
+.autoResizeImageRotate{
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+
+#toolbar {
+    top: 25%;
+    left:0%;
+    width: 50%;
+    height: 10%;
+    text-align: center;
+    background-color:#0D0D0D;
+    float: left;
+}
+
+#nav-drawer {
+    position: fixed;
+    overflow: auto;
+    margin-right: 20px;
+    padding: 0px;
+    width: 300px;
+    min-width: 200px;
+    height:100%;
+    border: 1px solid black;
+    background-color: #767676;
+    list-style-type: none;
+}
+
+#page {
+    width: 640px;
+    position: relative;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+#pageDark {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: auto;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+#image {
+    opacity: 0.5;
+}
+
+.center {
+    text-align: center;
+    color: black;
+}
