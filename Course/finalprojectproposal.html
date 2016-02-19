@@ -1,0 +1,56 @@
+<!DOCTYPE html>  <!-- this declares the document we are writing is HTML -->
+
+<html id="bodyDark"> <!-- this is the start of the actual HTML -->
+<head> <!-- header stuff: page title, styles, scripts-->
+    <title> Final Project Proposal </title>
+    <link rel="stylesheet" type="text/css" href="main.css"> <!-- this imports our css file -->
+
+</head>
+<body>
+<!-- page content goes here... -->
+
+<div class="dropdown">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="art22ex1.html">Exercise 1</a></li>
+        <<li><a href="exercise2.html">Exercise 2</a></li>
+        <<li><a href="exercise3.html">Exercise 3</a></li>
+        <li><a href="finalprojectproposal.html">Final Project Proposal</a> </li>
+    </ul>
+</div>
+
+    <div id="pageDark" class="center">
+        <h2>Aesthetic Goals</h2>
+        <p>Swiping left or right through "views" or "pages" of data has become standard in todays modern user interfaces.
+        My artistic goal for this project involves becoming fluent with manipulating the properties(such as
+        alpha X/Y/Z, scale, rotation etc...) of each page. This project will specifically focus on animating the
+        elements <b>inside</b> the page.</p>
+        <h2>Technical Goals</h2>
+        <p>To accomplish my Aesthetic goal I will seek to become familiar in the most <b>basic</b> sense with
+             Google's <a href="http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/4.0.2_r1/android/support/v4/view/ViewPager.java">"Viewpager"</a> implementation </p>
+         to use as a model (or and other slide-show-esque web implementations). I will also have to become familiar with translating each page's elements relative
+        to the visible page and the adjacent pages just off the screen.
+        <h2>Sketch/Diagram</h2>
+        <p>  This project will be preferably work only on mobile devices(as some examples on p5.js are seen to require mobile's to work).
+            The front-end will consist of a 2 or 4 setup, each taking up the full screen. Each page will have its own elements
+            that, upon swipe initiation, will be exposed to a common interface that will provide positional coordinates that encompass
+            the visible and adjacent pages just off the screen. **EDIT: While typing this I discovered that there is no real notion
+        of "interfaces" in Javascript as there is in Java because Javascript uses what is called <b>duck typing</b>.</p>
+        <p>With the provided positional parameters I will then be able to manipulate elements inside each page according to the state of
+        the current page transition("swipe") that is occuring.</p>
+        <p>Each page will have common "functions" that will be tested for before being called, as will the elements on each page.
+        These functions will use the current positional parameters provided when calculating their attempted transformations between
+            <h2>References</h2>
+        <p> My inspiration was drawn from wanting to become more adept at animating elements. Considerable inspirations is drawn
+        from <a href="https://medium.com/@BashaChris/the-android-viewpager-has-become-a-fairly-popular-component-among-android-apps-its-simple-6bca403b16d4#.1wqq4xtid"> Great Animations with PageTransformer</a>
+        article. I believe that the experienced gain from learning how to implement a basic skeletal version of these features using p5.js
+        will be easily "translated"(get it?) to working on Android animations in my future career.</p>
+        <img src="resources/examples/yahoo_animation.gif" align="center">
+
+
+
+</div>
+</body>
+</html>
