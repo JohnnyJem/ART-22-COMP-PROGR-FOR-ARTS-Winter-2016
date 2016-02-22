@@ -1,4 +1,4 @@
-# ART 22 COMP PROGR FOR ARTS - Winter-2016
+# ART 22 COMP PROGR FOR ARTS - Winter 2016 at University of California Santa Barbara
 Repository for in-class website containing assignments, doodles, notes, etc.
 
 ## Introduction to Computer Programming in the Arts
