@@ -428,7 +428,3 @@ function drawFish(x, y) {
     }
 
 }
-
-
-
-
